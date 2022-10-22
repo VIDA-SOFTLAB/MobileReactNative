@@ -12,15 +12,17 @@ import logoImg from '../../assets/logo-rededor.png';
 export function Login() {
   return (
     <Background secondary>
-      <Heading title="Apenas nos informe seu CPF abaixo:" />
-
-      <Image source={loginImg} style={styles.loginImage} />
       <SafeAreaView style={styles.container}>
-        <Input placeholder="CPF:" keyboardType="number-pad" maxLength={11} />
-        <Button text="Entrar" />
-      </SafeAreaView>
+        <Heading title="Apenas nos informe seu CPF abaixo:" />
 
-      <Image source={logoImg} style={styles.logoImage} />
+        <SafeAreaView>
+          <Image source={loginImg} style={styles.loginImage} />
+          <Input placeholder="CPF:" keyboardType="number-pad" maxLength={11} />
+          <Button text="Entrar" />
+        </SafeAreaView>
+
+        <Image source={logoImg} style={styles.logoImage} />
+      </SafeAreaView>
     </Background>
   );
 }

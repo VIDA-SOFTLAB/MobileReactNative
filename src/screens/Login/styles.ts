@@ -2,7 +2,6 @@ import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
   container: {
-    width: '100%',
     alignItems: 'center',
   },
   loginImage: {
@@ -11,7 +10,7 @@ export const styles = StyleSheet.create({
   logoImage: {
     width: 200,
     height: 46,
+    marginTop: 24,
     alignSelf: 'center',
-    resizeMode: 'stretch',
   },
 });
