@@ -5,10 +5,11 @@ import { Heading } from '../../components/Heading';
 
 import { styles } from './styles';
 import coverImg from '../../assets/login-cover.png';
+import { Background } from '../../components/Background';
 
 export function Login() {
   return (
-    <SafeAreaView>
+    <Background>
       <Heading title="Bora trazer seus dados para a Rede D'or?" />
 
       <SafeAreaView style={styles.buttonsContainer}>
@@ -17,6 +18,6 @@ export function Login() {
       </SafeAreaView>
 
       <Image source={coverImg} style={styles.coverImage} />
-    </SafeAreaView>
+    </Background>
   );
 }
