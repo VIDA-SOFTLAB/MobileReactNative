@@ -4,6 +4,7 @@ export declare global {
       home: undefined;
       login: undefined;
       logado: undefined;
+      mainScreen: undefined;
     }
   }
 }
