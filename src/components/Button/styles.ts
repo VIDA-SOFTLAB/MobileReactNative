@@ -1,5 +1,7 @@
 import { StyleSheet } from 'react-native';
 
+import { THEME } from '../../theme/index';
+
 export const styles = StyleSheet.create({
   button: {
     width: 200,
@@ -11,13 +13,13 @@ export const styles = StyleSheet.create({
     alignItems: 'center',
   },
   colorPrimary: {
-    backgroundColor: '#2E266D',
+    backgroundColor: THEME.COLORS.PRIMARY,
   },
   colorSecondary: {
-    backgroundColor: '#56AEFF',
+    backgroundColor: THEME.COLORS.SECONDARY,
   },
   text: {
-    color: 'white',
-    fontSize: 18,
+    color: THEME.COLORS.TEXT,
+    fontSize: THEME.FONT_SIZE.MD,
   },
 });
