@@ -1,17 +1,12 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
+  buttonsContainer: {
     width: '100%',
     alignItems: 'center',
   },
-  loginImage: {
+  coverImage: {
     alignSelf: 'center',
-  },
-  logoImage: {
-    width: 200,
-    height: 46,
-    alignSelf: 'center',
-    resizeMode: 'stretch',
+    marginRight: 24,
   },
 });

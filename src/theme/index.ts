@@ -6,13 +6,13 @@ export const THEME = {
     PRIMARY: '#2E266D',
     SECONDARY: '#56AEFF',
 
-    TEXT: '#FFFFFF',
+    WHITE: '#FFFFFF',
   },
 
   FONT_SIZE: {
     SM: 14,
     MD: 18,
     LG: 24,
-    XL: 48,
+    XL: 40,
   },
 };

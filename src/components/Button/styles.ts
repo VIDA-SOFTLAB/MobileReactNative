@@ -4,7 +4,7 @@ import { THEME } from '../../theme/index';
 
 export const styles = StyleSheet.create({
   button: {
-    width: 200,
+    width: 320,
     height: 48,
     marginVertical: 12,
     borderRadius: 8,
@@ -19,7 +19,7 @@ export const styles = StyleSheet.create({
     backgroundColor: THEME.COLORS.SECONDARY,
   },
   text: {
-    color: THEME.COLORS.TEXT,
+    color: THEME.COLORS.WHITE,
     fontSize: THEME.FONT_SIZE.MD,
   },
 });
