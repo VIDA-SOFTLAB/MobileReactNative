@@ -13,6 +13,10 @@ export function Welcome() {
 
   function handleLogin() {
     navigation.navigate('login');
+    }
+
+  function handleMainScreen() {
+      navigation.navigate('mainScreen');
   }
 
   return (
@@ -21,7 +25,7 @@ export function Welcome() {
 
       <SafeAreaView style={styles.buttonsContainer}>
         <Button text="Bora!" onPress={handleLogin} />
-        <Button text="Já tenho conta!" secondary onPress={handleLogin} />
+        <Button text="Já tenho conta!" secondary onPress={handleMainScreen} />
       </SafeAreaView>
 
       <Image source={coverImg} style={styles.coverImage} />
