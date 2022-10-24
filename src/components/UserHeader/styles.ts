@@ -1,16 +1,24 @@
 import { StyleSheet } from 'react-native';
-
 import { THEME } from '../../theme/index';
 
 export const styles = StyleSheet.create({
-  container: {
-    width: '100%',
-    backgroundColor: '#2e266d',
-    display: 'flex';
-      
-  },
-  title: {
-    fontSize: THEME.FONT_SIZE.XL,
-    textAlign: 'center',
+    header: {
+        flexDirection: 'row',
+        alignContent: 'space-around',
+        backgroundColor: THEME.COLORS.PRIMARY,
+    },
+
+    userIcon: {
+        width: 60,
+        height: 60,
+        margin: 15,
+        alignSelf: 'flex-start'
+    },
+
+    userInfo: {
+        color: THEME.COLORS.WHITE,
+        fontSize: THEME.FONT_SIZE.LG,
+        textAlignVertical: "center",
+        marginLeft: 15
     },
 });

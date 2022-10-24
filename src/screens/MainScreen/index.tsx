@@ -1,11 +1,29 @@
 import { Background } from '../../components/Background';
-import { Heading } from '../../components/Heading';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import { View, Text, Image } from 'react-native';
+import { styles } from './styles';
+import { UserHeader } from '../../components/UserHeader';
 
 
 export function MainScreen() {
     return (
-        <Background secondary>
-            <Heading title="main screen:" />
+        <Background>
+                <UserHeader />
         </Background>
     );
 }
+
+/*
+  
+ <View
+                style={{
+                    backgroundColor: 'red',
+                    flexDirection: 'row',
+                    justifyContent: 'space-around',
+                    marginTop: 20,
+                    marginBottom: 40,
+                }}
+            >
+            </View>
+
+*/

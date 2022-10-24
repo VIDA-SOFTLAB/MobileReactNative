@@ -1,0 +1,11 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\screens",
+    "\\src\\screens\\Login",
+    "\\src\\screens\\MainScreen"
+  ],
+  "SelectedNode": "\\src\\screens\\Login\\index.tsx",
+  "PreviewInSolutionExplorer": false
+}
