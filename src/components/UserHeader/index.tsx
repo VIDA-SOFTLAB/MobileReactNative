@@ -8,9 +8,9 @@ import { Heading } from '../Heading';
 function UserInfos() {
     return (
             <Text style={styles.userInfo}>
-            {"Ola, usuario"}
-            {"\n"}
-            {"Cartao SUS: 000000"}
+                {"Ola, usuario"}
+                {"\n"}
+                {"Cartao SUS: 000000"}
             </Text>
     )
 }

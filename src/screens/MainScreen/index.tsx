@@ -3,13 +3,16 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { View, Text, Image } from 'react-native';
 import { styles } from './styles';
 import { UserHeader } from '../../components/UserHeader';
+import { BottomMenu } from '../../components/BottomMenu';
+
 
 
 export function MainScreen() {
     return (
-        <Background>
+            <View style={styles.container}>
                 <UserHeader />
-        </Background>
+            <BottomMenu />
+            </View>
     );
 }
 

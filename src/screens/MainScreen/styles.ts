@@ -1,16 +1,11 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-    header: {
-        backgroundColor: '#2e266d',
-        flexDirection: 'row',
-        alignContent: 'space-around'
+    container: {
+        flexDirection: 'column',
+        justifyContent: 'space-between',
+        flex: 1,
+        backgroundColor: "yellow",
     },
 
-    userIcon: {
-        width: 60,
-        height: 60,
-        margin: 15,
-        alignSelf: 'flex-start'
-    },
 });
