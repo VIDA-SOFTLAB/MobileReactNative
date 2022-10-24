@@ -2,10 +2,14 @@
   "ExpandedNodes": [
     "",
     "\\src",
+    "\\src\\components",
+    "\\src\\components\\BottomMenu",
+    "\\src\\components\\Button",
     "\\src\\screens",
     "\\src\\screens\\Login",
-    "\\src\\screens\\MainScreen"
+    "\\src\\screens\\MainScreen",
+    "\\src\\theme"
   ],
-  "SelectedNode": "\\src\\screens\\Login\\index.tsx",
+  "SelectedNode": "\\src\\components\\BottomMenu\\styles.ts",
   "PreviewInSolutionExplorer": false
 }

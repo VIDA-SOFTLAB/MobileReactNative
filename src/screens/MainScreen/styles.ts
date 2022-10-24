@@ -5,7 +5,9 @@ export const styles = StyleSheet.create({
         flexDirection: 'column',
         justifyContent: 'space-between',
         flex: 1,
-        backgroundColor: "yellow",
     },
+    centralContainer: {
+        flex: 1
+    }
 
 });

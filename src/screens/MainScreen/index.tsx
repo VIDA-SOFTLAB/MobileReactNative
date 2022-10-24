@@ -4,29 +4,18 @@ import { View, Text, Image } from 'react-native';
 import { styles } from './styles';
 import { UserHeader } from '../../components/UserHeader';
 import { BottomMenu } from '../../components/BottomMenu';
+import { MainMenu } from '../../components/MainMenu';
 
 
 
 export function MainScreen() {
     return (
             <View style={styles.container}>
-                <UserHeader />
+            <UserHeader />
+            <View style={styles.centralContainer}>
+                <MainMenu />
+            </View>
             <BottomMenu />
             </View>
     );
 }
-
-/*
-  
- <View
-                style={{
-                    backgroundColor: 'red',
-                    flexDirection: 'row',
-                    justifyContent: 'space-around',
-                    marginTop: 20,
-                    marginBottom: 40,
-                }}
-            >
-            </View>
-
-*/

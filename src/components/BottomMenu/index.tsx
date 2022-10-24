@@ -9,9 +9,9 @@ import { Heading } from '../Heading';
 export function BottomMenu() {
     return (
         <View style={styles.container}>
-            <Image source={homeIcon} style={styles.imageButton} />
-            <Image source={calendarIcon} style={styles.imageButton} />
-            <Image source={optionsIcon} style={styles.imageButton} />
+            <TouchableOpacity><Image source={homeIcon} style={styles.imageButton} /></TouchableOpacity>
+            <TouchableOpacity><Image source={calendarIcon} style={styles.imageButton} /></TouchableOpacity>
+            <TouchableOpacity><Image source={optionsIcon} style={styles.imageButton} /></TouchableOpacity>
         </View>
   )
 }
