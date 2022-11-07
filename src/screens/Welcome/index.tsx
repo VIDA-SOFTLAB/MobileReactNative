@@ -25,8 +25,8 @@ export function Welcome() {
         <Heading title="Bora trazer seus dados para a Rede D'or?" />
 
         <SafeAreaView>
-          <Button text="Bora!" onPress={handleLogin} />
-          <Button text="Já tenho conta!" secondary onPress={handleMainScreen} />
+          <Button text="Bora!" onPress={handleMainScreen} />
+          <Button text="Já tenho conta!" secondary onPress={handleLogin} />
         </SafeAreaView>
 
         <Image source={coverImg} style={styles.coverImage} />

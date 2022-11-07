@@ -9,12 +9,31 @@ import { styles } from './styles';
 import loginImg from '../../assets/login-image.png';
 import logoImg from '../../assets/logo-rededor.png';
 import { useNavigation } from '@react-navigation/native';
+import React, { useState } from 'react';
+
+import {login} from '../../helper/firebase'
 
 export function Login() {
   const navigation = useNavigation();
 
-  function handleLogin() {
-    navigation.navigate('logado');
+  const [email, setEmail] = useState('');
+  const [senha, setSenha] = useState('');
+
+  async function handleLogin() {
+    const loginResult = await login(email, senha)
+
+    if (loginResult['status']){
+      navigation.navigate('logado');
+    }
+    else{
+      if (loginResult.errorCode == 'auth/wrong-password'){
+        console.log('errou a senha')
+      }
+      
+      if (loginResult.errorCode == 'auth/user-not-found') {
+        console.log('usuario nao encontrado')
+      }
+    }
   }
 
   return (
@@ -24,7 +43,18 @@ export function Login() {
 
         <SafeAreaView>
           <Image source={loginImg} style={styles.loginImage} />
-          <Input placeholder="CPF:" keyboardType="number-pad" maxLength={11} />
+
+          <Input placeholder="Email:" 
+                 onChangeText={newEmail => setEmail(newEmail)} 
+                 defaultValue={email}
+          />
+
+          <Input placeholder="Senha:" 
+                 onChangeText={newSenha => setSenha(newSenha)} 
+                 defaultValue={senha} 
+                 secureTextEntry={true}
+          />
+
           <Button text="Entrar" onPress={handleLogin} />
         </SafeAreaView>
 
