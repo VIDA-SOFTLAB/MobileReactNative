@@ -5,9 +5,9 @@ import { View, Text, Button } from 'react-native';
 
 export default function App() {
   return (
-    <View>
+    <Background>
       <StatusBar backgroundColor="transparent" />
       <Routes />
-    </View>
+    </Background>
   );
 }
