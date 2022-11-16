@@ -9,6 +9,10 @@ export const styles = StyleSheet.create({
         justifyContent: 'space-between',
         marginTop: '45%',
     },
+    flexSelect: {
+        display: "flex",
+        flexDirection: "row",
+    },
     bgCadastro: {
         width: '100%',
         height: '25%',

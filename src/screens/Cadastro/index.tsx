@@ -1,9 +1,9 @@
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Background } from '../../components/Background';
 import { Button } from '../../components/Button';
 import { Heading } from '../../components/Heading';
-import { Input } from '../../components/Input';
+import { TransparentInput } from '../../components/TransparentInput';
 
 import { styles } from './styles';
 import bgCadastro from '../../assets/background-cadastro.png';
@@ -28,11 +28,14 @@ export function Cadastro() {
               
 
                 <SafeAreaView>
-                          <Input placeholder="CPF" placeholderTextColor="#BBB" dark />
-
-                  <Input placeholder="Senha" placeholderTextColor="#BBB" dark/>
-
-                  <Button text="Entrar" onPress={handleCadastro} clear/>
+                  <TransparentInput placeholder="Digite seu nome" user/>
+                  <TransparentInput placeholder="Digite seu CPF" cpf/>
+                  <TransparentInput placeholder="Data de Nascimento" birth/>
+                  <SafeAreaView style={styles.flexSelect}>
+                      <View style={{width:"55%"}}><TransparentInput placeholder="Data de Nascimento" select options={["Convênio", "exemp2", "exemp3"]} /></View>
+                      <View style={{ width: "40%" }}><TransparentInput placeholder="Data de Nascimento" select options={["Plano", "exemp2", "exemp3"]} /></View>
+                  </SafeAreaView>
+                  <Button text="Entrar" onPress={handleCadastro}/>
               </SafeAreaView>
               
           </SafeAreaView>
