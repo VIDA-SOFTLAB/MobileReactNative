@@ -1,4 +1,5 @@
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React from 'react';
+import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 
 import { styles } from './styles';
 
@@ -8,9 +9,11 @@ interface BackgroundProps {
 }
 
 export function Background({ secondary, children }: BackgroundProps) {
-  return (
-    <SafeAreaView style={[styles.container, secondary ? styles.secondaryBackground : styles.primaryBackground]}>
-      {children}
-    </SafeAreaView>
+    return (
+    <SafeAreaProvider>
+        <SafeAreaView style={[styles.container, secondary ? styles.secondaryBackground : styles.primaryBackground]}>
+            {children}
+        </SafeAreaView>
+    </SafeAreaProvider>
   );
 }

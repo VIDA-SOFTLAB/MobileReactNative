@@ -44,18 +44,20 @@ export function Login() {
         <SafeAreaView>
           <Image source={loginImg} style={styles.loginImage} />
 
-          <Input placeholder="Email:" 
-                 onChangeText={newEmail => setEmail(newEmail)} 
-                 defaultValue={email}
+                  <Input placeholder="CPF" placeholderTextColor="#BBB"
+                  onChangeText={newEmail => setEmail(newEmail)}
+                  defaultValue={email}
+                  dark
           />
 
-          <Input placeholder="Senha:" 
+          <Input placeholder="Senha" placeholderTextColor="#BBB"
                  onChangeText={newSenha => setSenha(newSenha)} 
                  defaultValue={senha} 
                  secureTextEntry={true}
+                 dark
           />
 
-          <Button text="Entrar" onPress={handleLogin} />
+          <Button text="Entrar" onPress={handleLogin} clear/>
         </SafeAreaView>
 
         <Image source={logoImg} style={styles.logoImage} />

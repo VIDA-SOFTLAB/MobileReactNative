@@ -5,7 +5,7 @@ export const THEME = {
 
     PRIMARY: '#2E266D',
     SECONDARY: '#56AEFF',
-
+    ALERT: '#E24E34',
     WHITE: '#FFFFFF',
   },
 
