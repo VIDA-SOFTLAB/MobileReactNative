@@ -1,9 +1,10 @@
-import { Image } from 'react-native';
+import { Image, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { Background } from '../../components/Background';
 import { Button } from '../../components/Button';
 import { Heading } from '../../components/Heading';
 import { Input } from '../../components/Input';
+import { Text } from 'react-native';
 
 import { styles } from './styles';
 import loginImg from '../../assets/login-image.png';
@@ -19,7 +20,7 @@ export function Login() {
   const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
 
-
+  const [loginError, setloginError] = useState('');
 
   function maskCpf(cpf:string) {
     cpf = cpf.replace(/\D/g, "")
@@ -45,12 +46,23 @@ export function Login() {
     }
     else{
       if (loginResult.errorCode == 'auth/wrong-password'){
-        console.log('errou a senha')
+        setloginError('errou a senha')
       }
       
       if (loginResult.errorCode == 'auth/user-not-found') {
+        setloginError('usuario nao encontrado')
         console.log('usuario nao encontrado')
       }
+    }
+  }
+
+  function renderLoginError(){
+    if (loginError != ''){
+      return (
+        <Text>
+          {loginError}
+        </Text>  
+      )
     }
   }
 
@@ -75,7 +87,10 @@ export function Login() {
                  secureTextEntry={true}
                  dark
           />
-
+          <View>
+          {renderLoginError()}
+          </View>
+          
           <Button text="Entrar" onPress={handleLogin} clear/>
         </SafeAreaView>
 
