@@ -16,11 +16,29 @@ import {login} from '../../helper/firebase'
 export function Login() {
   const navigation = useNavigation();
 
-  const [email, setEmail] = useState('');
+  const [cpf, setCpf] = useState('');
   const [senha, setSenha] = useState('');
 
+
+
+  function maskCpf(cpf:string) {
+    cpf = cpf.replace(/\D/g, "")
+
+    cpf = cpf.slice(0, 11)
+
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
+    cpf = cpf.replace(/(\d{3})(\d)/, "$1.$2")
+    cpf = cpf.replace(/(\d{3})(\d{1,2})$/, "$1-$2")
+
+    return cpf
+  }
+
+  function handleCpfMask(event:any){
+    setCpf(maskCpf(event))
+  }
+
   async function handleLogin() {
-    const loginResult = await login(email, senha)
+    const loginResult = await login(cpf, senha)
 
     if (loginResult['status']){
       navigation.navigate('logado');
@@ -45,8 +63,9 @@ export function Login() {
           <Image source={loginImg} style={styles.loginImage} />
 
                   <Input placeholder="CPF" placeholderTextColor="#BBB"
-                  onChangeText={newEmail => setEmail(newEmail)}
-                  defaultValue={email}
+                  onChangeText={handleCpfMask}
+                  defaultValue={cpf}
+                  value={cpf}
                   dark
           />
 
