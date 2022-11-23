@@ -1,5 +1,4 @@
-import { TextInput, TextInputProps } from 'react-native';
-import { Picker } from '@react-native-picker/picker';
+import { TextInput, TextInputProps, Picker } from 'react-native';
 import { Image } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import userImg from '../../assets/user-input.png';
