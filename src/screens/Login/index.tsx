@@ -13,6 +13,7 @@ import { useNavigation } from '@react-navigation/native';
 import React, { useState } from 'react';
 
 import {login} from '../../helper/firebase'
+import {getUserByCpf} from '../../helper/db'
 
 export function Login() {
   const navigation = useNavigation();
@@ -39,19 +40,28 @@ export function Login() {
   }
 
   async function handleLogin() {
-    const loginResult = await login(cpf, senha)
 
-    if (loginResult['status']){
-      navigation.navigate('logado');
+    const userInfo = JSON.parse(await getUserByCpf(cpf))
+
+    if (userInfo.data == null){
+      setloginError('usuario nao encontrado')
     }
     else{
-      if (loginResult.errorCode == 'auth/wrong-password'){
-        setloginError('errou a senha')
+      const email = userInfo.data.email
+
+      const loginResult = await login(email, senha)
+
+      if (loginResult['status']){
+        navigation.navigate('logado');
       }
-      
-      if (loginResult.errorCode == 'auth/user-not-found') {
-        setloginError('usuario nao encontrado')
-        console.log('usuario nao encontrado')
+      else{
+        if (loginResult.errorCode == 'auth/wrong-password'){
+          setloginError('errou a senha')
+        }
+
+        if (loginResult.errorCode == 'auth/user-not-found') {
+          setloginError('usuario nao encontrado')
+        }
       }
     }
   }

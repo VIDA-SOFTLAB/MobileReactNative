@@ -1,5 +1,5 @@
 const firebase = require("firebase/app");
-const { getAuth, signInWithEmailAndPassword } = require("firebase/auth");
+const { getAuth, signInWithEmailAndPassword, createUserWithEmailAndPassword } = require("firebase/auth");
 
 const firebaseConfig = {
     apiKey: "AIzaSyCxWr7ECPcAobmVGs9xN5CZ3MpbxGIsepI",
@@ -19,6 +19,26 @@ export async function login (email:string, senha:string) {
         const auth = await getAuth();
         
         const login = await signInWithEmailAndPassword(auth, email, senha)
+        const userInfo = login.user
+
+        return {
+            status   : true,
+            userInfo : userInfo
+        }
+    }
+    catch (err) {
+        return {
+            status    : false,
+            errorCode : err.code
+        }
+    }
+}
+
+export async function createUser (email:string, senha:string) {
+    try {
+        const auth = await getAuth();
+        
+        const login = await createUserWithEmailAndPassword(auth, email, senha)
         const userInfo = login.user
 
         return {
