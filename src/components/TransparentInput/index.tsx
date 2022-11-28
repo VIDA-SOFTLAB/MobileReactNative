@@ -4,7 +4,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import userImg from '../../assets/user-input.png';
 import calendarImg from '../../assets/calendar-input.png';
 import cpfInput from '../../assets/cpf-input.png';
-import { styles } from './styles';
+import { TransparentInputStyles } from './styles';
 
 interface NewTextInputProps extends TextInputProps {
     user?: boolean;
@@ -17,9 +17,9 @@ interface NewTextInputProps extends TextInputProps {
 export function TransparentInput({ user, cpf, birth, select, options, ...rest }: NewTextInputProps) {
     if (!select && (user || cpf || birth)) {
         return (
-            <SafeAreaView style={styles.container}>
-                <Image source={user ? userImg : (cpf ? cpfInput : (birth ? calendarImg : null))} style={styles.inputImage} />
-                <TextInput placeholderTextColor="#FFF" style={styles.input} {...rest} />
+            <SafeAreaView style={TransparentInputStyles.container}>
+                <Image source={user ? userImg : (cpf ? cpfInput : (birth ? calendarImg : null))} style={TransparentInputStyles.inputImage} />
+                <TextInput placeholderTextColor="#FFF" style={TransparentInputStyles.input} {...rest} />
             </SafeAreaView>
         );
     } else if (select) {
@@ -27,14 +27,14 @@ export function TransparentInput({ user, cpf, birth, select, options, ...rest }:
         /*selectedValue={selectedValue}*/
         return (
             <Picker
-                style={styles.select}>
+                style={TransparentInputStyles.select}>
                 {options?.map(item => (<Picker.Item label={item} />))}
             </Picker>
             )
     }
     return (
-        <SafeAreaView style={styles.container}>
-            <TextInput placeholderTextColor="#FFF" style={styles.input} {...rest} />
+        <SafeAreaView style={TransparentInputStyles.container}>
+            <TextInput placeholderTextColor="#FFF" style={TransparentInputStyles.input} {...rest} />
         </SafeAreaView>
         )
 }

@@ -1,7 +1,7 @@
 import { StyleSheet } from 'react-native';
 import { THEME } from '../../theme';
 
-export const styles = StyleSheet.create({
+export const TransparentInputStyles = StyleSheet.create({
     input: {
         flex: 1,
         height: 48,
