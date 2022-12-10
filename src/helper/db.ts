@@ -2,24 +2,30 @@ var request = require('request');
 
 import {createUser} from './firebase'
 
-const HOST = 'http://localhost:9000'
+const HOST = 'http://localhost:5000'
+const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIiLCJqdGkiOiI5NjdmMzBlNy05NDZhLTRkOTYtYTY4ZC1lYTYwMDhhMmM4MTQiLCJOYW1lSWQiOiIxIiwiYWRtaW5pc3RyYXRvck5vdyI6IjEiLCJleHAiOjE2NzYzODA2MzksImlzcyI6ImlyaXMyLnNAZW1haWwuY29tIiwiYXVkIjoiaXJpczIuc0BlbWFpbC5jb20ifQ.CtDvxFEzP-XYGXPOmECig93E4T8N1tGYETXNB4AHRkg'
+
 
 export async function cadastrar(data){
 
-    const user = await createUser(data.email, data.password)
+    //temp
+    console.log(data)
+  
+    const user = await createUser(data.Email, data.Password)
 
     if (user.status){
         const userInfo = user.userInfo
 
         console.log(userInfo.uid)
 
-        data.uid = userInfo.uid
+        //data.uid = userInfo.uid
 
         var options = {
             'method': 'POST',
-            'url': HOST + '/api/patient/',
+            'url': HOST + '/api/1/patient/',
             'headers': {
-              'Content-Type': 'application/json'
+              'Content-Type': 'application/json',
+              'Authorization': 'Bearer ' + TOKEN
             },
             body: JSON.stringify(data)
         };
@@ -45,8 +51,9 @@ export async function cadastrar(data){
 export async function getUserByCpf(cpf){
     var options = {
         'method': 'GET',
-        'url': HOST + '/api/patientByCpf/' + cpf,
+        'url': HOST + '/api/1/patient/cpf/' + cpf.replace(/\D/g, ""),
         'headers': {
+          'Authorization': 'Bearer ' + TOKEN
         }
     };
 
