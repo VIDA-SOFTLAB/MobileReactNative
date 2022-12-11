@@ -9,11 +9,13 @@ import { styles } from './styles';
 import loginImg from '../../assets/login-image.png';
 import logoImg from '../../assets/logo-rededor.png';
 
-export function Logado() {
-  const navigation = useNavigation();
+export function Logado({ route, navigation }) {
+  //const navigation = useNavigation();
+
+  const userData = route.params.data;
 
   function handleMainScreen() {
-    navigation.navigate('mainScreen');
+    navigation.navigate('mainScreen', {data: userData});
   }
 
   return (

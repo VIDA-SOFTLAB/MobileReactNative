@@ -58,7 +58,7 @@ export function Login() {
       const loginResult = await login(email, senha)
 
       if (loginResult['status']){
-        navigation.navigate('logado');
+        navigation.navigate('logado', {data: userInfo});
       }
       else{
         if (loginResult.errorCode == 'auth/wrong-password'){
