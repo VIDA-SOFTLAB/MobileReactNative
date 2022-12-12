@@ -1,6 +1,6 @@
 import { Background } from '../../components/Background';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { TouchableOpacity, TouchableOpacityProps } from 'react-native';
+import { ScrollView, TouchableOpacity, TouchableOpacityProps } from 'react-native';
 import { TouchableHighlight } from 'react-native'
 import { View, Text, Image } from 'react-native';
 import { styles } from './styles';
@@ -13,6 +13,7 @@ import calendarIcon from '../../assets/buttons-icons/calendar.png';
 import optionsIcon from '../../assets/buttons-icons/more-options.png';
 
 import {doctors} from '../../data/doctor.json'
+import React from 'react';
 
 export function Agenda({ route, navigation }) {
 
@@ -59,7 +60,7 @@ export function Agenda({ route, navigation }) {
     return (
             <View style={styles.container}>
             <UserHeader username={userData['userName']}/>
-            <View style={styles.centralContainer}>
+            <ScrollView style={styles.centralContainer}>
             
             {schedules.map(function(object, i){
                 return(
@@ -76,7 +77,7 @@ export function Agenda({ route, navigation }) {
                     </Message>    
                 );
             })}
-            </View>
+            </ScrollView>
             <View style={styles.containerBottom}>
                 <TouchableOpacity onPress={handleMainScreen}><Image source={homeIcon} style={styles.imageButtonBottom} /></TouchableOpacity>
                 <TouchableOpacity><Image source={calendarIcon} style={styles.imageButtonBottom} /></TouchableOpacity>

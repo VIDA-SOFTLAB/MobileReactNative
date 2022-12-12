@@ -36,7 +36,7 @@ export function Welcome() {
                     <Button text="AJUDA" alert onPress={handleMainScreen}/>
         </SafeAreaView>
 
-      <View><Image source={coverImg} style={styles.coverImage} /></View>
+                <SafeAreaView><Image source={coverImg} style={styles.coverImage} /></SafeAreaView>
       </SafeAreaView>
     </Background>
             
