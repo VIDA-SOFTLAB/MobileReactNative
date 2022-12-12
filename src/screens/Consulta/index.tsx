@@ -106,7 +106,7 @@ export function Consulta({ route, navigation }) {
       "registerDate": (new Date()).toISOString(),
       "lastRegisterUpdate": (new Date()).toISOString(),
       "patientCpf": userData.cpf,
-      "doctorId": doctor
+      "doctorId": "" + doctor
     }
 
     console.log(data)
