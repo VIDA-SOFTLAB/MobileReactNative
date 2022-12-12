@@ -6,8 +6,9 @@ const HOST = 'http://localhost:5000'
 const TOKEN = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIiLCJqdGkiOiI5NjdmMzBlNy05NDZhLTRkOTYtYTY4ZC1lYTYwMDhhMmM4MTQiLCJOYW1lSWQiOiIxIiwiYWRtaW5pc3RyYXRvck5vdyI6IjEiLCJleHAiOjE2NzYzODA2MzksImlzcyI6ImlyaXMyLnNAZW1haWwuY29tIiwiYXVkIjoiaXJpczIuc0BlbWFpbC5jb20ifQ.CtDvxFEzP-XYGXPOmECig93E4T8N1tGYETXNB4AHRkg'
 
 export async function register(data, createFirebase = true){
+  var user
   if (createFirebase){
-    const user = await createUser(data.Email, data.Password)
+    user = await createUser(data.Email, data.Password)
     const userInfo = user.userInfo
 
     console.log(userInfo.uid)
