@@ -50,5 +50,10 @@ export const styles = StyleSheet.create({
         height: 60,
         margin: 15,
     },
-
+    userInfo: {
+        color: THEME.COLORS.PRIMARY,
+        fontSize: THEME.FONT_SIZE.LG,
+        textAlignVertical: "center",
+        marginLeft: 15
+    }
 });

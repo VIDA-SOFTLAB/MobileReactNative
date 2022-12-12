@@ -1,0 +1,29 @@
+{
+    "doctors": [
+        {
+            "id": 1,
+            "name": "Dr. Paulo Roberto",
+            "specialty": "Cardiologia"
+        },
+        {
+            "id": 2,
+            "name": "Dra. Maria Souza",
+            "specialty": "Urologia"
+        },
+        {
+            "id": 3,
+            "name": "Dr. Luan Miguel",
+            "specialty": "Dermatologia"
+        },
+        {
+            "id": 4,
+            "name": "Dra. Viviane Nobrega",
+            "specialty": "Ortopedia"
+        },
+        {
+            "id": 5,
+            "name": "Dr. Marcos Leonardo",
+            "specialty": "Ortopedia"
+        }
+    ]
+}

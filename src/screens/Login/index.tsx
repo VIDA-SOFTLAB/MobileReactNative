@@ -40,27 +40,33 @@ export function Login() {
   }
 
   async function handleLogin() {
+    setloginError('')
+
+    if (cpf == '' || senha == ''){
+      setloginError('Por favor, preencha todos os campos.')
+      return
+    }
 
     const userInfo = JSON.parse(await getUserByCpf(cpf))
-
-    if (userInfo.data == null){
-      setloginError('usuario nao encontrado')
+    
+    if (userInfo.status != null){
+      setloginError('Usuário não encontrado')
     }
     else{
-      const email = userInfo.data.email
+      const email = userInfo.email
 
       const loginResult = await login(email, senha)
 
       if (loginResult['status']){
-        navigation.navigate('logado');
+        navigation.navigate('logado', {data: userInfo});
       }
       else{
         if (loginResult.errorCode == 'auth/wrong-password'){
-          setloginError('errou a senha')
+          setloginError('Senha incorreta')
         }
 
         if (loginResult.errorCode == 'auth/user-not-found') {
-          setloginError('usuario nao encontrado')
+          setloginError('Usuário não encontrado')
         }
       }
     }
