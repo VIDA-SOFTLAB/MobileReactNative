@@ -11,16 +11,18 @@ export async function register(data, createFirebase = true){
     user = await createUser(data.Email, data.Password)
     const userInfo = user.userInfo
 
-    console.log(userInfo.uid)
+    //console.log(userInfo.uid)
 
     //data.uid = userInfo.uid
-  }
-  if (!(user.status)){
-    return {
-      status : false,
-      error  : user.errorCode
+
+    if (!(user.status)){
+      return {
+        status : false,
+        error  : user.errorCode
+      }
     }
   }
+  
 
   var options = {
       'method': 'POST',
