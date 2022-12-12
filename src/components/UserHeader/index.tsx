@@ -14,8 +14,6 @@ function UserInfos({ username }: NewTextInputProps) {
     return (
             <Text style={styles.userInfo}>
                 {"Ola, " + username['username']}
-                {"\n"}
-                {"Cartao SUS: 000000"}
             </Text>
     )
 }

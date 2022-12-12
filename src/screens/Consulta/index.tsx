@@ -14,25 +14,28 @@ import { Text } from 'react-native';
 
 import { TransparentInputStyles } from '../../components/TransparentInput/styles';
 
-import {register, getUserByCpf} from '../../helper/db'
+import {registerConsult} from '../../helper/db'
 
 import {medCenters} from '../../data/medCenter.json'
 import {doctors} from '../../data/doctor.json'
 
 export function Consulta({ route, navigation }) {
+  const userData = route.params.data;
+
   const [doctorOptions, setdoctorOptions] = useState<any[]>();
   const medCenterOptions = medCenters
   
   
-  var specialtyOptions = doctors.map(function(val, index){
+  var specialtyOptions = [...new Set(doctors.map(function(val, index){
     return val['specialty']
-  })
+  }))]
 
   specialtyOptions = ['-'].concat(specialtyOptions)
 
   console.log(specialtyOptions)
 
   const timeOptions = [
+    "-",
     "7:00", 
     "7:30", 
     "8:00",
@@ -68,7 +71,58 @@ export function Consulta({ route, navigation }) {
   
 
   async function handleConsult() {
-    return
+    setRegisError('')
+
+    if(time == '' || time == '-'){
+      setRegisError('Por favor, preencha todos os campos.')
+      return
+    }
+    if(date.length != 10){
+      setRegisError('Por favor, insira uma data valida.')
+      return
+    }
+
+    var regisDate = (new Date(+date.split("/")[2], date.split("/")[1] - 1, +date.split("/")[0]))//.toISOString()
+
+    if(regisDate <= (new Date())){
+      setRegisError('Por favor, insira uma data valida.')
+      return
+    }
+
+    regisDate.setHours(parseInt(time.split(":")[0]) - 3, parseInt(time.split(":")[1]), 0, 0);
+
+    const regisDateForm = regisDate.toISOString()
+
+    if (specialty == '' || specialty == '-' || medCenter == '' || medCenter == '-'){
+      setRegisError('Por favor, preencha todos os campos.')
+      return
+    }
+
+    const data = {
+      "consultId": "-1",
+      "specialty": specialty,
+      "medicalCenterName": medCenter,
+      "consultDatetime": regisDateForm,
+      "registerDate": (new Date()).toISOString(),
+      "lastRegisterUpdate": (new Date()).toISOString(),
+      "patientCpf": userData.cpf,
+      "doctorId": doctor
+    }
+
+    console.log(data)
+
+    const result = await registerConsult(data)
+
+    console.log(result)
+
+    if (result.errorCode || result.error){
+      setRegisError('Erro na agendamento de exame.')
+      console.log(result.errorCode)
+    }
+    else {
+      console.log('Consulta criado com sucesso') 
+      navigation.navigate('mainScreen', {data: userData});
+    }
   }
 
   function maskDate(date:string) {
@@ -99,6 +153,7 @@ export function Consulta({ route, navigation }) {
       
       if(specialtyDoctors.length > 0){
         setdoctorOptions(specialtyDoctors)
+        setDoctor(specialtyDoctors[0]['id'])
       }
       
     }
@@ -120,7 +175,7 @@ export function Consulta({ route, navigation }) {
     <Background secondary>
               <Image source={bgCadastro} style={styles.bgCadastro} />
               <SafeAreaView style={styles.container}>
-                  <Heading title="Agendamento de Exame" style={styles.titleCadastro} />
+                  <Heading title="Agendamento de Consulta" style={styles.titleCadastro} />
 
                   <SafeAreaView>
                     <SafeAreaView>

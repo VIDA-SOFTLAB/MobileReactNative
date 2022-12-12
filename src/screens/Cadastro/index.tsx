@@ -74,7 +74,6 @@ export function Cadastro() {
     console.log(name, email, cpf, senha, birth, convenio, plano, phone)
     console.log(uf, states[uf])
 
-    //TEMP
     const data = {
       "Name": name,
       "Email": email,

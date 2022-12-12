@@ -14,17 +14,19 @@ import { Text } from 'react-native';
 
 import { TransparentInputStyles } from '../../components/TransparentInput/styles';
 
-import {register, getUserByCpf} from '../../helper/db'
+import {registerExam} from '../../helper/db'
 
 import {medCenters} from '../../data/medCenter.json'
 import {specialties} from '../../data/examSpecialty.json'
 
 export function Exame({ route, navigation }) {
+  const userData = route.params.data;
 
   const specialtyOptions = specialties
   const medCenterOptions = medCenters
   
   const timeOptions = [
+    '-',
     "7:00", 
     "7:30", 
     "8:00",
@@ -56,10 +58,59 @@ export function Exame({ route, navigation }) {
   const [medCenter, setMedCenter] = useState('');
 
   const [regisError, setRegisError] = useState('');
-  
 
   async function handleExam() {
-    return
+    setRegisError('')
+
+    if(time == '' || time == '-'){
+      setRegisError('Por favor, preencha todos os campos.')
+      return
+    }
+    
+    if(date.length != 10){
+      setRegisError('Por favor, insira uma data valida.')
+      return
+    }
+
+    var regisDate = (new Date(+date.split("/")[2], date.split("/")[1] - 1, +date.split("/")[0]))//.toISOString()
+
+    if(regisDate <= (new Date())){
+      setRegisError('Por favor, insira uma data valida.')
+      return
+    }
+
+    regisDate.setHours(parseInt(time.split(":")[0]) - 3, parseInt(time.split(":")[1]), 0, 0);
+
+    const regisDateForm = regisDate.toISOString()
+
+    if (specialty == '' || specialty == '-' || medCenter == '' || medCenter == '-'){
+      setRegisError('Por favor, preencha todos os campos.')
+      return
+    }
+    
+    const data = {
+      "examId": "-1",
+      "specialty": specialty,
+      "medicalCenterName": medCenter,
+      "examDatetime": regisDateForm,
+      "registerDate": (new Date()).toISOString(),
+      "lastRegisterUpdate": (new Date()).toISOString(),
+      "patientCpf": userData.cpf,
+    }
+
+    console.log(data)
+
+    const result = await registerExam(data)
+
+    if (result.errorCode || result.error){
+      setRegisError('Erro na agendamento de exame.')
+      console.log(result.errorCode)
+    }
+    else {
+      console.log('Exame criado com sucesso') 
+      navigation.navigate('mainScreen', {data: userData});
+    }
+    
   }
 
   function maskDate(date:string) {

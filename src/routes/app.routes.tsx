@@ -7,6 +7,7 @@ import { MainScreen } from '../screens/MainScreen';
 import { Cadastro } from '../screens/Cadastro';
 import { Exame } from '../screens/Exame';
 import { Consulta } from '../screens/Consulta';
+import { Agenda } from '../screens/Agenda';
 
 const { Navigator, Screen } = createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export function AppRoutes() {
       <Screen name="cadastro" component={Cadastro} />
       <Screen name="exam" component={Exame} />
       <Screen name="consult" component={Consulta} />
+      <Screen name="schedule" component={Agenda} />
     </Navigator>
   );
 }
