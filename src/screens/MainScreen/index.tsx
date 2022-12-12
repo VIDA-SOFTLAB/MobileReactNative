@@ -47,7 +47,7 @@ export function MainScreen({ route, navigation }) {
             <View style={styles.centralContainer}>
                 <View style={styles.containerMenu}>
                     <Text style={styles.titleText}>{"O que voce precisa hoje?"}</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity >
                         <Image source={meusDados} style={styles.imageButton} />
                         <Text style={styles.textButton}>{"Meus Dados"}</Text>
                     </TouchableOpacity>

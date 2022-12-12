@@ -12,7 +12,8 @@ interface NewTextInputProps extends TextProps{
 
 function UserInfos({ username }: NewTextInputProps) {
     return (
-            <Text style={styles.userInfo}>
+        <Text style={styles.userInfo}>
+            <br />
                 {"Ola, " + username['username']}
             </Text>
     )

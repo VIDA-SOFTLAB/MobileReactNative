@@ -207,8 +207,8 @@ export function Cadastro() {
     }
   }
 
-  return (
-    <Background secondary>
+    return (
+        <View style={styles.bg}>
               <Image source={bgCadastro} style={styles.bgCadastro} />
               <SafeAreaView style={styles.container}>
                   <Heading title="Cadastro" style={styles.titleCadastro} />
@@ -312,6 +312,6 @@ export function Cadastro() {
               
           </SafeAreaView>
           <Image source={footer} style={styles.footerImg} />
-    </Background>
+        </View>
   );
 }
