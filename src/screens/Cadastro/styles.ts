@@ -10,6 +10,7 @@ export const styles = StyleSheet.create({
         marginTop: '45%',
     },
     bg: {
+        paddingBottom: 350,
         backgroundColor: THEME.COLORS.SECONDARY,
     },
     flexSelect: {
@@ -18,13 +19,13 @@ export const styles = StyleSheet.create({
     },
     bgCadastro: {
         width: '100%',
-        height: '25%',
+        height: '50%',
         zIndex: -2,
         position: 'absolute',
     },
     footerImg: {
         width: '100%',
-        height: '25%',
+        height: '21%',
         zIndex: -2,
         position: 'absolute',
         bottom: 0,

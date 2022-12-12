@@ -307,7 +307,7 @@ export function Cadastro() {
                   <View>
                     {renderLoginError()}
                   </View>
-                  <Button text="Entrar" onPress={handleCadastro}/>
+                  <Button text="Cadastrar" onPress={handleCadastro}/>
               </SafeAreaView>
               
           </SafeAreaView>
