@@ -6,19 +6,22 @@ export const styles = StyleSheet.create({
     container: {
         flexDirection: 'column',
         justifyContent: 'space-between',
-        flex: 1,
+        flex: 6,
     },
     centralContainer: {
-        flex: 1
+        flex: 2
     },
     containerMenu: {
-        flex: 1,
+        textAlign: 'center',
+        minWidth: 450,
+        flex: 2,
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignContent: 'space-around',
         flexWrap: "wrap",
         paddingRight: 20,
         paddingLeft: 20,
+
     },
     imageButton: {
         margin: 30,
