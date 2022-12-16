@@ -4,12 +4,16 @@ import { Button } from '../../components/Button';
 import { Heading } from '../../components/Heading';
 
 import { styles } from './styles';
-import coverImg from '../../assets/welcome-image.png';
 import { Background } from '../../components/Background';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
+
+
+
 export function Welcome() {
+
+  const coverImg = require('../../assets/welcome-image.png');
   const navigation = useNavigation();
 
   function handleLogin() {

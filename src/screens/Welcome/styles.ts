@@ -1,12 +1,15 @@
 import { StyleSheet } from 'react-native';
 
 export const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    height: '100%',
-    justifyContent: 'space-between',
-  },
-  coverImage: {
-    marginRight: 24,
+    container: {
+        flex:1,
+        alignItems: 'center',
+        height: '100%',
+        justifyContent: 'space-between',
+    },
+    coverImage: {
+        display: 'flex',
+        height: 347,
+        width:588,
   },
 });
