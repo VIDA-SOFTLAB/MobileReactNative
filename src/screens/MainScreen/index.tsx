@@ -18,7 +18,7 @@ import prontoSocorro from '../../assets/buttons-icons/pronto-socorro.png';
 import exames from '../../assets/buttons-icons/exames.png';
 import ajuda from '../../assets/buttons-icons/ajuda.png';
 
-import {getExamsByCpf, getConsultsByCpf} from '../../helper/db'
+import {getExamsByCpf, getConsultsByCpf, getMedicalCenters} from '../../helper/db'
 
 export function MainScreen({ route, navigation }) {
     const userData = route.params.data;
@@ -32,10 +32,10 @@ export function MainScreen({ route, navigation }) {
     }
 
     async function handleExams() {
-        navigation.navigate('exam', {data: userData});
+        navigation.navigate('exam', {data: userData, medCenters: JSON.parse(await getMedicalCenters())});
     }
-    function handleConsults() {
-        navigation.navigate('consult', {data: userData});
+    async function handleConsults() {
+        navigation.navigate('consult', {data: userData, medCenters: JSON.parse(await getMedicalCenters())});
     }
     async function handleSchedule() {
         navigation.navigate('schedule', {data: userData, schedules: await getSchedules(userData.cpf)});

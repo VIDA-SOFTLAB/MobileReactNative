@@ -170,7 +170,25 @@ export async function getMedicalInsurance(){
   })
 }
 
+export async function getMedicalCenters(){
+  var options = {
+      'method': 'GET',
+      'url': HOST + '/api/1/MedicalCenterNew/ListarCentroMedico',
+      'headers': {
+        'Authorization': 'Bearer ' + TOKEN
+      }
+  };
 
+  return new Promise(function(resolve, reject) {
+      request.get(options, function(err, resp, body) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(body);
+        }
+      })
+  })
+}
 
 
 

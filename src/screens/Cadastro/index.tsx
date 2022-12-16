@@ -26,10 +26,6 @@ export function Cadastro({ route, navigation }) {
   })
 
   convenioOptions.unshift('-')
-
-  console.log(convenioOptions);
-  
-
   
   const planoOptions=["-", "Plano Bronze", "Plano Prata", "Plano Ouro"]
   const states = {   

@@ -16,14 +16,19 @@ import { TransparentInputStyles } from '../../components/TransparentInput/styles
 
 import {registerConsult} from '../../helper/db'
 
-import {medCenters} from '../../data/medCenter.json'
 import {doctors} from '../../data/doctor.json'
 
 export function Consulta({ route, navigation }) {
   const userData = route.params.data;
+  const medCenters = route.params.medCenters;
+
+  const medCenterOptions = medCenters.map(function(val, index){
+    return val['medicalCenterName']
+  })
+
+  medCenterOptions.unshift('-')
 
   const [doctorOptions, setdoctorOptions] = useState<any[]>();
-  const medCenterOptions = medCenters
   
   
   var specialtyOptions = [...new Set(doctors.map(function(val, index){
@@ -31,8 +36,6 @@ export function Consulta({ route, navigation }) {
   }))]
 
   specialtyOptions = ['-'].concat(specialtyOptions)
-
-  console.log(specialtyOptions)
 
   const timeOptions = [
     "-",

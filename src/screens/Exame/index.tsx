@@ -16,14 +16,19 @@ import { TransparentInputStyles } from '../../components/TransparentInput/styles
 
 import {registerExam} from '../../helper/db'
 
-import {medCenters} from '../../data/medCenter.json'
 import {specialties} from '../../data/examSpecialty.json'
 
 export function Exame({ route, navigation }) {
   const userData = route.params.data;
+  const medCenters = route.params.medCenters;
+
+  const medCenterOptions = medCenters.map(function(val, index){
+    return val['medicalCenterName']
+  })
+
+  medCenterOptions.unshift('-')
 
   const specialtyOptions = specialties
-  const medCenterOptions = medCenters
   
   const timeOptions = [
     '-',
