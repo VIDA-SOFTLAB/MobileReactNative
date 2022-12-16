@@ -9,8 +9,9 @@ import { Background } from '../../components/Background';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
 
-export function Welcome() {
-  const navigation = useNavigation();
+import {getMedicalInsurance} from '../../helper/db'
+
+export function Welcome({ route, navigation }) {
 
   function handleLogin() {
     navigation.navigate('login');
@@ -20,9 +21,9 @@ export function Welcome() {
     navigation.navigate('mainScreen');
     }
 
-    function handleCadastro() {
-        navigation.navigate('cadastro');
-    }
+  async function handleCadastro() {
+      navigation.navigate('cadastro', {convs: JSON.parse(await getMedicalInsurance())});
+  }
 
     return (
         

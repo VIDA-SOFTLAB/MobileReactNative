@@ -16,10 +16,21 @@ import { TransparentInputStyles } from '../../components/TransparentInput/styles
 
 import {register, getUserByCpf} from '../../helper/db'
 
-export function Cadastro() {
-  const navigation = useNavigation();
+export function Cadastro({ route, navigation }) {
+  const convs = route.params.convs;
 
-  const convenioOptions=["-", "Convenio", "Convenio 1", "Convenio 2"]
+  console.log(convs)
+
+  const convenioOptions = convs.map(function(val, index){
+    return val['medicalInsuranceName']
+  })
+
+  convenioOptions.unshift('-')
+
+  console.log(convenioOptions);
+  
+
+  
   const planoOptions=["-", "Plano Bronze", "Plano Prata", "Plano Ouro"]
   const states = {   
     'AC': 'Acre',

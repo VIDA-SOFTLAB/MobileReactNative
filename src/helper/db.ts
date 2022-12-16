@@ -150,6 +150,26 @@ export async function getConsultsByCpf(cpf){
   })
 }
 
+export async function getMedicalInsurance(){
+  var options = {
+      'method': 'GET',
+      'url': HOST + '/api/1/MedicalInsuranceNew/ListarConvenio',
+      'headers': {
+        'Authorization': 'Bearer ' + TOKEN
+      }
+  };
+
+  return new Promise(function(resolve, reject) {
+      request.get(options, function(err, resp, body) {
+        if (err) {
+          reject(err);
+        } else {
+          resolve(body);
+        }
+      })
+  })
+}
+
 
 
 
