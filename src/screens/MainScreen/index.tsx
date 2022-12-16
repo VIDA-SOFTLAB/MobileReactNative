@@ -45,8 +45,10 @@ export function MainScreen({ route, navigation }) {
             <View style={styles.container}>
             <UserHeader username={userData['userName']}/>
             <View style={styles.centralContainer}>
+                <View style={{ flex: 1, justifyContent: "center", alignItems: "center" }}>
+                    <Text style={styles.titleText}>{"O que voce precisa hoje?"}</Text></View>
                 <View style={styles.containerMenu}>
-                    <Text style={styles.titleText}>{"O que voce precisa hoje?"}</Text>
+                    
                     <TouchableOpacity >
                         <Image source={meusDados} style={styles.imageButton} />
                         <Text style={styles.textButton}>{"Meus Dados"}</Text>
@@ -55,6 +57,11 @@ export function MainScreen({ route, navigation }) {
                         <Image source={internacoes} style={styles.imageButton} />
                         <Text style={styles.textButton}>{"internacoes"}</Text>
                     </TouchableOpacity>
+
+                </View><View style={styles.containerMenu}>
+                        
+
+
                     <TouchableOpacity onPress={handleConsults}>
                         <Image source={consultas} style={styles.imageButton} />
                         <Text style={styles.textButton}>{"consultas"}</Text>
@@ -63,6 +70,8 @@ export function MainScreen({ route, navigation }) {
                         <Image source={prontoSocorro} style={styles.imageButton} />
                         <Text style={styles.textButton}>{"pronto\nsocorro"}</Text>
                     </TouchableOpacity>
+
+                </View><View style={styles.containerMenu}>
                     <TouchableOpacity onPress={handleExams}>
                         <Image source={exames} style={styles.imageButton} />
                         <Text style={styles.textButton}>{"exames"}</Text>

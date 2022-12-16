@@ -4,7 +4,6 @@ import { Button } from '../../components/Button';
 import { Heading } from '../../components/Heading';
 
 import { styles } from './styles';
-import coverImg from '../../assets/welcome-image.png';
 import { Background } from '../../components/Background';
 import { useNavigation } from '@react-navigation/native';
 import React from 'react';
@@ -12,6 +11,8 @@ import React from 'react';
 import {getMedicalInsurance} from '../../helper/db'
 
 export function Welcome({ route, navigation }) {
+
+  const coverImg = require('../../assets/welcome-image.png');
 
   function handleLogin() {
     navigation.navigate('login');
